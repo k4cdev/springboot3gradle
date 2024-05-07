@@ -23,7 +23,7 @@ public class AuthService {
     AuthResponse register(RegisterRequest register){
         User user = User.builder()
                 .username(register.getUsername())
-                .password(register.getPassword())
+                .password(passwordEncoder.encode(register.getPassword()))
                 .role(Role.USER)
                 .build();
 
